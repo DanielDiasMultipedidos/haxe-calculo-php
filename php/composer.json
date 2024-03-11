@@ -1,0 +1,7 @@
+{
+    "name": "danielmulti/haxe-calculo",
+    "description": "Calculo de produtos,pizzas e combos",
+    "require": {
+        "php": "^7.2"
+    }
+}
