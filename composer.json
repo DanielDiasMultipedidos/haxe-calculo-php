@@ -1,6 +1,7 @@
 {
     "name": "danieldiaswolff/haxe-calculo-php",
     "description": "Calculo de produtos genericos, pizzas e combos.",
+    "version": "1.0.0",
     "autoload": {
         "psr-4": {
             "Danieldiaswolff\\HaxeCalculoPhp\\": "src/"
