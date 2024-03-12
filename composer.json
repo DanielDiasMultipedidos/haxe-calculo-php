@@ -1,14 +1,19 @@
 {
-    "name": "danielmulti/haxe-calculo",
-    "description": "Calculo de produtos,pizzas e combos",
+    "name": "danieldiaswolff/haxe-calculo-php",
+    "description": "Calculo de produtos genericos, pizzas e combos.",
+    "autoload": {
+        "psr-4": {
+            "Danieldiaswolff\\HaxeCalculoPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "DanielDias",
+            "email": "daniel.dias@multipedidos.com.br"
+        }
+    ],
+    "minimum-stability": "stable",
     "require": {
         "php": ">=7.2"
-    },
-    "license": "MIT",
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/DanielDiasMultipedidos/haxe-calculo-php"
-        }
-    ]
+    }
 }
