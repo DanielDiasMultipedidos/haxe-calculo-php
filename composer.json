@@ -4,5 +4,11 @@
     "version": "1.0.0",
     "require": {
         "php": ">=7.2"
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/DanielDiasMultipedidos/haxe-calculo-php"
+        }
+    ]
 }
