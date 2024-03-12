@@ -1,7 +1,6 @@
 {
     "name": "danielmulti/haxe-calculo",
     "description": "Calculo de produtos,pizzas e combos",
-    "version": "1.0.0",
     "type": "library",
     "require": {
         "php": ">=7.2"
