@@ -1,5 +1,5 @@
 {
-    "name": "danielmulti/haxe-calculo",
+    "name": "danielmulti/haxecalculo",
     "description": "Calculo de produtos genericos, pizzas e combos.",
     "type": "library",
     "authors": [
@@ -11,5 +11,10 @@
     "minimum-stability": "stable",
     "require": {
         "php": ">=7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Src\\" : "lib/src/"
+        }
     }
 }
