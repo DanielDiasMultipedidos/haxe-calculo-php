@@ -13,6 +13,6 @@
         "php": ">=7.2"
     },
     "autoload": {
-        "classmap": ["lib/src/"]
+        "classmap": ["lib/"]
     }
 }
