@@ -14,9 +14,13 @@ class Helper {
 	 * @return float
 	 */
 	public function formatReturnToPHP ($totalNetValue) {
-		#src/infrastructure/Helper.hx:19: characters 3-95
-		$totalNetValueFormated = (new \NumberFormatter("en_US", 0, "#.##"))->format($totalNetValue);
-		#src/infrastructure/Helper.hx:20: characters 3-47
+		#src/infrastructure/Helper.hx:19: characters 3-59
+		$formatter = new \NumberFormatter("en_US", 0, "#.##");
+		#src/infrastructure/Helper.hx:20: characters 3-86
+		$formatter->setAttribute(\NumberFormatter::ROUNDING_MODE, \NumberFormatter::ROUND_HALFUP);
+		#src/infrastructure/Helper.hx:21: characters 3-63
+		$totalNetValueFormated = $formatter->format($totalNetValue);
+		#src/infrastructure/Helper.hx:22: characters 3-47
 		return \Std::parseFloat($totalNetValueFormated);
 	}
 }
