@@ -316,7 +316,12 @@ class Order extends Helper {
 		$totalNetPrice -= $this->calculePercentage($totalNetPrice, $this->paymentMethodPercentageDiscount);
 		#src/order/Order.hx:136: characters 3-81
 		$totalNetPrice += $this->calculePercentage($totalGrossPrice, $this->percentageServiceFee);
-		#src/order/Order.hx:141: characters 3-47
+		#src/order/Order.hx:138: characters 19-56
+		if ($totalNetPrice < 0) {
+			#src/order/Order.hx:138: characters 39-40
+			$totalNetPrice = 0;
+		}
+		#src/order/Order.hx:143: characters 3-47
 		return $this->formatReturnToPHP($totalNetPrice);
 	}
 
