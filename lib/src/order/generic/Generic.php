@@ -59,7 +59,7 @@ class Generic extends BaseItem {
 			#src/order/generic/Generic.hx:22: characters 4-8
 			$_gthis1 = $_gthis;
 			#src/order/generic/Generic.hx:21: lines 21-23
-			$result[] = ($_gthis1->totalGrossPrice += $item->totalGrossPrice);
+			$result[] = ($_gthis1->totalGrossPrice += $item->totalGrossPrice * $_gthis->quantity);
 		}
 		\Array_hx::wrap($result);
 		#src/order/generic/Generic.hx:25: characters 3-30
