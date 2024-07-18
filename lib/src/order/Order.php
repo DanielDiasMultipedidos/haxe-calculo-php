@@ -69,11 +69,17 @@ class Order extends Helper {
 	 * @var object[]|\Array_hx
 	 */
 	public $products;
+	/**
+	 * @var float
+	 */
+	public $totalWithoutOperations;
 
 	/**
 	 * @return void
 	 */
 	public function __construct () {
+		#src/order/Order.hx:30: characters 44-45
+		$this->totalWithoutOperations = 0;
 		#src/order/Order.hx:28: characters 57-58
 		$this->deliveryFeeFixedDiscountToBeApplied = 0;
 		#src/order/Order.hx:27: characters 54-55
@@ -112,7 +118,7 @@ class Order extends Helper {
 	 * @return void
 	 */
 	public function addCouponFixedDiscount ($fixedPrice) {
-		#src/order/Order.hx:45: characters 3-51
+		#src/order/Order.hx:47: characters 3-51
 		$this->couponFixedDiscountToBeApplied = $fixedPrice;
 	}
 
@@ -122,7 +128,7 @@ class Order extends Helper {
 	 * @return void
 	 */
 	public function addCouponPercentageDiscount ($percentagePrice) {
-		#src/order/Order.hx:41: characters 3-61
+		#src/order/Order.hx:43: characters 3-61
 		$this->couponPercentageDiscountToBeApplied = $percentagePrice;
 	}
 
@@ -132,7 +138,7 @@ class Order extends Helper {
 	 * @return void
 	 */
 	public function addDeliveryFee ($deliveryFee) {
-		#src/order/Order.hx:37: characters 3-33
+		#src/order/Order.hx:39: characters 3-33
 		$this->deliveryFee = $deliveryFee;
 	}
 
@@ -142,7 +148,7 @@ class Order extends Helper {
 	 * @return void
 	 */
 	public function addDeliveryFeeFixedDiscount ($fixedPrice) {
-		#src/order/Order.hx:89: characters 3-56
+		#src/order/Order.hx:91: characters 3-56
 		$this->deliveryFeeFixedDiscountToBeApplied = $fixedPrice;
 	}
 
@@ -152,7 +158,7 @@ class Order extends Helper {
 	 * @return void
 	 */
 	public function addDeliveryFeePercentageDiscount ($percentagePrice) {
-		#src/order/Order.hx:85: characters 3-58
+		#src/order/Order.hx:87: characters 3-58
 		$this->deliveryFeePercentageToBeApplied = $percentagePrice;
 	}
 
@@ -162,7 +168,7 @@ class Order extends Helper {
 	 * @return void
 	 */
 	public function addPaymentMethodFixedAddition ($fixedPrice) {
-		#src/order/Order.hx:77: characters 3-47
+		#src/order/Order.hx:79: characters 3-47
 		$this->paymentMethodFixedAddition = $fixedPrice;
 	}
 
@@ -172,7 +178,7 @@ class Order extends Helper {
 	 * @return void
 	 */
 	public function addPaymentMethodFixedDiscount ($fixedPrice) {
-		#src/order/Order.hx:69: characters 3-47
+		#src/order/Order.hx:71: characters 3-47
 		$this->paymentMethodFixedDiscount = $fixedPrice;
 	}
 
@@ -182,7 +188,7 @@ class Order extends Helper {
 	 * @return void
 	 */
 	public function addPaymentMethodPercentageAddition ($percentagePrice) {
-		#src/order/Order.hx:73: characters 3-57
+		#src/order/Order.hx:75: characters 3-57
 		$this->paymentMethodPercentageAddition = $percentagePrice;
 	}
 
@@ -192,7 +198,7 @@ class Order extends Helper {
 	 * @return void
 	 */
 	public function addPaymentMethodPercentageDiscount ($percentagePrice) {
-		#src/order/Order.hx:65: characters 3-57
+		#src/order/Order.hx:67: characters 3-57
 		$this->paymentMethodPercentageDiscount = $percentagePrice;
 	}
 
@@ -202,7 +208,7 @@ class Order extends Helper {
 	 * @return void
 	 */
 	public function addPercentageServiceFee ($fixedPrice) {
-		#src/order/Order.hx:81: characters 3-41
+		#src/order/Order.hx:83: characters 3-41
 		$this->percentageServiceFee = $fixedPrice;
 	}
 
@@ -212,7 +218,7 @@ class Order extends Helper {
 	 * @return void
 	 */
 	public function addPosFixedAddition ($fixedPrice) {
-		#src/order/Order.hx:61: characters 3-48
+		#src/order/Order.hx:63: characters 3-48
 		$this->posFixedAdditionToBeApplied = $fixedPrice;
 	}
 
@@ -222,7 +228,7 @@ class Order extends Helper {
 	 * @return void
 	 */
 	public function addPosFixedDiscount ($fixedPrice) {
-		#src/order/Order.hx:53: characters 3-48
+		#src/order/Order.hx:55: characters 3-48
 		$this->posFixedDiscountToBeApplied = $fixedPrice;
 	}
 
@@ -232,7 +238,7 @@ class Order extends Helper {
 	 * @return void
 	 */
 	public function addPosPercentageAddition ($percentagePrice) {
-		#src/order/Order.hx:57: characters 3-58
+		#src/order/Order.hx:59: characters 3-58
 		$this->posPercentageAdditionToBeApplied = $percentagePrice;
 	}
 
@@ -242,7 +248,7 @@ class Order extends Helper {
 	 * @return void
 	 */
 	public function addPosPercentageDiscount ($percentagePrice) {
-		#src/order/Order.hx:49: characters 3-58
+		#src/order/Order.hx:51: characters 3-58
 		$this->posPercentageDiscountToBeApplied = $percentagePrice;
 	}
 
@@ -252,18 +258,28 @@ class Order extends Helper {
 	 * @return void
 	 */
 	public function addProduct ($product) {
-		#src/order/Order.hx:33: characters 3-30
+		#src/order/Order.hx:35: characters 3-30
 		$_this = $this->products;
 		$_this->arr[$_this->length++] = $product;
+	}
+
+	/**
+	 * @param float $totalWithoutOperations
+	 * 
+	 * @return void
+	 */
+	public function addTotalWithoutOperations ($totalWithoutOperations) {
+		#src/order/Order.hx:99: characters 3-55
+		$this->totalWithoutOperations = $totalWithoutOperations;
 	}
 
 	/**
 	 * @return float
 	 */
 	public function calculateTotalGrossPrice () {
-		#src/order/Order.hx:97: characters 3-33
+		#src/order/Order.hx:107: characters 3-33
 		$totalGrossPrice = 0;
-		#src/order/Order.hx:99: lines 99-101
+		#src/order/Order.hx:109: lines 109-111
 		$result = [];
 		$data = $this->products->arr;
 		$_g_current = 0;
@@ -274,7 +290,7 @@ class Order extends Helper {
 			$result[] = ($totalGrossPrice += $item->calculateTotalGrossPrice());
 		}
 		\Array_hx::wrap($result);
-		#src/order/Order.hx:103: characters 3-25
+		#src/order/Order.hx:113: characters 3-25
 		return $totalGrossPrice;
 	}
 
@@ -282,46 +298,48 @@ class Order extends Helper {
 	 * @return float
 	 */
 	public function calculateTotalNetPrice () {
-		#src/order/Order.hx:107: characters 3-63
+		#src/order/Order.hx:117: characters 3-63
 		$totalGrossPrice = $this->calculateTotalGrossPrice();
-		#src/order/Order.hx:108: characters 3-39
+		#src/order/Order.hx:118: characters 3-39
 		$totalNetPrice = $totalGrossPrice;
-		#src/order/Order.hx:110: characters 3-63
+		#src/order/Order.hx:120: characters 3-63
 		$this->deliveryFee -= $this->deliveryFeeFixedDiscountToBeApplied;
-		#src/order/Order.hx:112: characters 3-7
+		#src/order/Order.hx:122: characters 3-7
 		$tmp = $this;
-		#src/order/Order.hx:112: characters 3-97
+		#src/order/Order.hx:122: characters 3-97
 		$tmp->deliveryFee = $tmp->deliveryFee - $this->calculePercentage($this->deliveryFee, $this->deliveryFeePercentageToBeApplied);
-		#src/order/Order.hx:114: characters 3-36
+		#src/order/Order.hx:124: characters 3-36
 		$totalNetPrice += $this->deliveryFee;
-		#src/order/Order.hx:116: characters 3-55
+		#src/order/Order.hx:126: characters 3-55
 		$totalNetPrice -= $this->couponFixedDiscountToBeApplied;
-		#src/order/Order.hx:118: characters 3-94
+		#src/order/Order.hx:128: characters 3-94
 		$totalNetPrice -= $this->calculePercentage($totalNetPrice, $this->couponPercentageDiscountToBeApplied);
-		#src/order/Order.hx:120: characters 3-52
+		#src/order/Order.hx:130: characters 3-52
 		$totalNetPrice += $this->posFixedAdditionToBeApplied;
-		#src/order/Order.hx:122: characters 3-91
+		#src/order/Order.hx:132: characters 3-91
 		$totalNetPrice += $this->calculePercentage($totalNetPrice, $this->posPercentageAdditionToBeApplied);
-		#src/order/Order.hx:124: characters 3-52
+		#src/order/Order.hx:134: characters 3-52
 		$totalNetPrice -= $this->posFixedDiscountToBeApplied;
-		#src/order/Order.hx:126: characters 3-91
+		#src/order/Order.hx:136: characters 3-91
 		$totalNetPrice -= $this->calculePercentage($totalNetPrice, $this->posPercentageDiscountToBeApplied);
-		#src/order/Order.hx:128: characters 3-51
+		#src/order/Order.hx:138: characters 3-48
+		$this->addTotalWithoutOperations($totalNetPrice);
+		#src/order/Order.hx:140: characters 3-51
 		$totalNetPrice += $this->paymentMethodFixedAddition;
-		#src/order/Order.hx:130: characters 3-90
+		#src/order/Order.hx:142: characters 3-90
 		$totalNetPrice += $this->calculePercentage($totalNetPrice, $this->paymentMethodPercentageAddition);
-		#src/order/Order.hx:132: characters 3-51
+		#src/order/Order.hx:144: characters 3-51
 		$totalNetPrice -= $this->paymentMethodFixedDiscount;
-		#src/order/Order.hx:134: characters 3-90
+		#src/order/Order.hx:146: characters 3-90
 		$totalNetPrice -= $this->calculePercentage($totalNetPrice, $this->paymentMethodPercentageDiscount);
-		#src/order/Order.hx:136: characters 3-81
+		#src/order/Order.hx:148: characters 3-81
 		$totalNetPrice += $this->calculePercentage($totalGrossPrice, $this->percentageServiceFee);
-		#src/order/Order.hx:138: lines 138-140
+		#src/order/Order.hx:150: lines 150-152
 		if ($totalNetPrice < 0) {
-			#src/order/Order.hx:139: characters 4-21
+			#src/order/Order.hx:151: characters 4-21
 			$totalNetPrice = 0;
 		}
-		#src/order/Order.hx:145: characters 3-47
+		#src/order/Order.hx:157: characters 3-47
 		return $this->formatReturnToPHP($totalNetPrice);
 	}
 
@@ -332,8 +350,16 @@ class Order extends Helper {
 	 * @return float
 	 */
 	public function calculePercentage ($total, $percentage) {
-		#src/order/Order.hx:93: characters 3-38
+		#src/order/Order.hx:103: characters 3-38
 		return $total * ($percentage / 100);
+	}
+
+	/**
+	 * @return float
+	 */
+	public function getTotalWithoutOperations () {
+		#src/order/Order.hx:95: characters 3-37
+		return $this->totalWithoutOperations;
 	}
 }
 
